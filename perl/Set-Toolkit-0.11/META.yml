@@ -15,9 +15,9 @@ name: Set-Toolkit
 provides:
   Set::Toolkit:
     file: lib/Set/Toolkit.pm
-    version: 0.10
+    version: 0.11
   Set::Toolkit::TieArray:
     file: lib/Set/Toolkit.pm
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.10
+version: 0.11

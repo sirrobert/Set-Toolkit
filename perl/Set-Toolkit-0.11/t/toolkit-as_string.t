@@ -5,7 +5,7 @@ use warnings;
 BEGIN { unshift @INC, '.' }
 
 use Test::More qw(no_plan);
-use Set::Toolkit 0.10;
+use Set::Toolkit 0.11;
 
 sub set {Set::Toolkit->new(@_)};
 

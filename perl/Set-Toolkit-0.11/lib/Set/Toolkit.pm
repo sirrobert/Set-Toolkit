@@ -5,7 +5,7 @@ use warnings;
 use Carp qw(carp cluck croak confess);
 
 use vars qw($VERSION);
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 sub new {
   my $class = shift;
@@ -596,7 +596,7 @@ Set::Toolkit - searchable, orderable, flexible sets of (almost) anything.
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =head1 SYNOPSIS
 
@@ -678,17 +678,17 @@ some notable differences: this package ...
 
 =over
 
-=item ... provides for I<ordered> sets
+=item * ... provides for I<ordered> sets
 
-=item ... is pure perl.
+=item * ... is pure perl.
 
-=item ... is slower for the above reasons (and more!)
+=item * ... is slower for the above reasons (and more!)
 
-=item ... provides mechanisms for searching set elements.
+=item * ... provides mechanisms for searching set elements.
 
-=item ... does not flatten scalars to strings.
+=item * ... does not flatten scalars to strings.
 
-=item ... probably some other stuff.
+=item * ... probably some other stuff.
 
 =back
 
@@ -836,9 +836,9 @@ ways:
 
 =over
 
-=item As a scalar value
+=item * As a scalar value
 
-=item As a hash reference
+=item * As a hash reference
 
 =back
 
@@ -1026,7 +1026,7 @@ Under the hood, this just returns
 
   return ($self->size) ? 1 : 0;
 
-=head4 B<Array>
+=head3 B<Array>
 
 =over
 
@@ -1046,14 +1046,17 @@ course, feel free to use objects or refs of any kind.
 Let's look at some code.
  
 B<Create our set>
+
   my $set = Set::Toolkit->new();
   $set->insert(qw(a b c d e f));
 
 B<scan our set as an array>
+
   ### Prints: a, b, c, d, e, f
   print join(', ', @$set);
 
 B<shift and unshift the set>
+
   ### $first is now 'a'.  This is the same as $set->first, except that
   ### shifting is destructive.
   my $first = shift @$set;
@@ -1063,6 +1066,7 @@ B<shift and unshift the set>
   $first = $set->first;
 
 B<push and pop the set>
+
   ### $last is now 'f'.  This is the same as $set->last, except that
   ### popping is destructive.
   my $last = pop @$set;
@@ -1072,24 +1076,27 @@ B<push and pop the set>
   $last = $set->last;
 
 B<get and set elements directly>
+
   my $before = $set->[3];   ### $set->[3] is 'd'.
   $set->[3]  = 8;           ### Set it to '8'.
   my $after  = $set->[3];   ### Now it's '8'.
 
 B<getting the size of the set> (Note that setting the size is not yet
 supported.  You'll get a warning if you try to do it.)
+
   ### These are equivalent.
   my $size   = $set->size;
   my $scalar = scalar(@$set);
 
 B<splicing a set>
+
   ### Remove the letter 'c' (position 2)
   splice(@$set, 2, 1);
 
   ### Replace the letter 'e' (now position 3) with 'm', 'n', 'o'
   splice(@set, 3, 1, qw(m n o));
 
-=head4 B<String> (B<as_string>)
+=head3 B<String> (B<as_string>)
 
 =over
 
@@ -1126,11 +1133,11 @@ You might want to use this module if the following are generally true:
 
 =over 
 
-=item You aren't desparate for speed.
+=item * You aren't desparate for speed.
 
-=item You want to be able to search (and subsearch!) your sets easily.
+=item * You want to be able to search (and subsearch!) your sets easily.
 
-=item You want I<ordered> sets.
+=item * You want I<ordered> sets.
 
 =back
 
@@ -1140,11 +1147,11 @@ This module probably isn't right for you if you:
 
 =over 
 
-=item Need it fast, fast, fast!
+=item * Need it fast, fast, fast!
 
-=item You don't care about searching your sets.
+=item * You don't care about searching your sets.
 
-=item You don't care about ordering your sets.
+=item * You don't care about ordering your sets.
 
 =back
 
@@ -1177,6 +1184,17 @@ Please report any bugs or feature requests to C<bug-set-toolkit at rt.cpan.org>,
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Set::Toolkit>.  I
 will be notified, and then you'll automatically be notified of progress on your bug as I
 make changes.
+
+=head1 TODO
+
+=over
+
+=item * There are some gaps in the tests.  I've tested for common use cases, but they
+could certainly be more robust.
+
+=item * More inline code comments.
+
+=back
 
 =head1 SUPPORT
 

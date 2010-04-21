@@ -1,6 +1,7 @@
 Set::Toolkit
 
-Version 0.10
+Version 0.11
+
 The Set Toolkit intends to provide a broad, robust interface to sets of
 data.  Largely inspired by Set::Object, a default set from the Set Toolkit
 should behave similarly enough to those created by Set::Object that 
